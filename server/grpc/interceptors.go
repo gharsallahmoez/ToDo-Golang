@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+// UnaryRequestValidator intercepts and validates unary requests
 func UnaryRequestValidator(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
 	validCtx := ctx
 	err := helpers.CheckTimeout(ctx)

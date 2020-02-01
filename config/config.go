@@ -19,6 +19,7 @@ type Config struct {
 	}
 }
 
+// setViper configs viper
 func setViper() error {
 	viper.SetConfigName("config")
 	viper.AddConfigPath(".")
@@ -26,6 +27,7 @@ func setViper() error {
 	return err
 }
 
+// GetConfig returns the parsed config from config.yaml
 func GetConfig() (*Config, error) {
 	err := setViper()
 	if err != nil {

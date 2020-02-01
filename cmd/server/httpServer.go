@@ -9,6 +9,7 @@ import (
 
 var wgp sync.WaitGroup
 
+// startHTTP starts a HTTP server
 func startHTTP() {
 	conf,err := config.GetConfig()
 	if err != nil {

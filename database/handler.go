@@ -7,6 +7,7 @@ import (
 	"log"
 )
 
+// DBhandler holds the fcts to implemented by a database type handler
 type DBhandler interface {
 	AddToDo(ctx context.Context, item entity.ToDo) error
 	DeleteToDo(ctx context.Context, hash string) (bool, error)
@@ -14,6 +15,7 @@ type DBhandler interface {
 	GetAllToDo(ctx context.Context) ([]*entity.ToDo, error)
 }
 
+// CreateDBhandler creates a handler for the db type defined in the config
 func CreateDBhandler(config *config.Config) (*DBhandler,error) {
 	var db DBhandler
 	var err error

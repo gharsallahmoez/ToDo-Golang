@@ -7,9 +7,12 @@ import (
 	"log"
 )
 
+// Runner holds the fcts to be implemented by a server
 type Runner interface {
 	Start() error
 }
+
+// CreateRunner creates a runner of type defined by the config
 func CreateRunner(conf *config.Config,serverType string) Runner {
 	var runner Runner
 	switch serverType {

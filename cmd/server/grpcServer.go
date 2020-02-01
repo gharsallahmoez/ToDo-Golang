@@ -9,9 +9,8 @@ import (
 
 var wg sync.WaitGroup
 
-// startGRPC
-// start a grpc server
-// register service to server
+// startGRPC starts a grpc server
+// registers service to server
 func startGRPC() {
 	conf, err := config.GetConfig()
 	if err != nil {

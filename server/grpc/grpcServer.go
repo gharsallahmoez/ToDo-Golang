@@ -8,11 +8,14 @@ import(
 	"log"
 	"net"
 )
+
+// GrpcRunner represents the grpc server with its dependencies
 type GrpcRunner struct {
 	DB db.DBhandler
 	*config.Config
 }
 
+// NewGrpcRunner creates a GrpcRunner
 func NewGrpcRunner(conf *config.Config) GrpcRunner{
     dbHandler,err := db.CreateDBhandler(conf)
     if err != nil {
@@ -21,6 +24,7 @@ func NewGrpcRunner(conf *config.Config) GrpcRunner{
 	return GrpcRunner{*dbHandler,conf}
 }
 
+// Start starts the GrpcRunner
 func (svc GrpcRunner) Start() error {
 	lis, err := net.Listen("tcp", svc.Server.Grpc.Host)
 	if err != nil {

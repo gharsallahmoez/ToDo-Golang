@@ -15,6 +15,7 @@ import (
 	"time"
 )
 
+// MongoDBhandler handles mongo config : collection
 type MongoDBhandler struct {
 	*mongo.Collection
 }
@@ -24,6 +25,7 @@ var (
 	wg      sync.WaitGroup
 )
 
+// NewMongoDBhandler creates MongoDBhandler with given config
 func NewMongoDBhandler(conf *config.Config) (*MongoDBhandler, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
